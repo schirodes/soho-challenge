@@ -14,7 +14,154 @@ html, body{
     background-color: colors.$primary-color;
     color: colors.$text-color;
     margin:0px;
+    width: 100%;
+    height: 100%;
 }
+.w-100{width:100%;} .w-50{width:50%} .w-33{width:33%}
+.d-flex{display:flex} .flex-flow-c{flex-flow: column;} .flex-flow-r{flex-flow: row;} .jc-center{justify-content: center;} .align-center{align-items: center;} .text-center{text-align:center}
+
+//Display
+.d-small-none{
+    display:inline;
+}
+.d-small{
+    display:none;
+}
+
+//Titles
+.titulo{
+    position:relative;
+    font-size: 35px;
+}
+.titulo:after{
+    content:'';
+    height:3px;
+    width:10%;
+    background:colors.$accent-color;
+    position:absolute;
+    left:calc(50% - 5%);
+    bottom:-10px;
+}
+.subtitulo{
+    color: colors.$text-secondary;
+    margin: 10px 10% 50px 10%;
+}
+
+
+//Margin & Padding
+.m-5{margin:5px;} .m-10{margin:10px} .m-15{margin: 15px}
+.mx-5{margin-left: 5px; margin-right: 5px;} .mx-10{margin-left: 10px; margin-right: 10px;} .mx-15{margin-left: 15px; margin-right: 15px;}
+.my-5{margin-top: 5px; margin-bottom: 5px;} .my-10{margin-top: 10px; margin-bottom: 10px;} .my-15{margin-top: 15px; margin-bottom: 15px;}
+
+//Colors
+.text-primary{
+    color: colors.$text-color !important;
+}
+.text-secondary{
+    color: colors.$text-secondary !important;
+}
+.text-danger{
+    color: colors.$text-danger !important;
+}
+.text-accent{
+    color: colors.$accent-color !important;
+}
+
+//Buttons
+button, .button{
+    background-color: colors.$accent-color;
+    color: colors.$text-color;
+    border: none;
+    text-decoration: none;
+    padding: 15px 30px 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    display: inline-flex;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+button.transparent, .button.transparent{
+    background-color: transparent;
+    border: colors.$accent-color;
+    border-style: groove;
+    color: colors.$accent-color;
+}
+
+//Others
+.material-icons{
+    vertical-align: middle;
+}
+
+/*- Header -*/
+$navbar-line-width: 4px;
+$navbar-item-margin: 10px;
+$navbar-footer-padding: 20px;
+
+header{
+    display: flex;
+    flex-flow: column wrap;
+    background-image: url("wallpaper_sky.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 80%;
+    
+    nav{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        flex-flow: row;
+
+        div, section, article{
+            display: flex;
+        }
+            
+        .logo{
+            flex-grow: 1;
+        }
+
+        ul{
+            display:flex;
+            flex-flow: row;
+            flex-grow: 10;
+            justify-content: flex-end;
+            list-style-type: none;
+        }
+        li{
+            margin: 0 $navbar-item-margin 0 $navbar-item-margin;
+        }
+        li>a{
+            color: colors.$text-secondary;
+            text-decoration-line: none;
+        }
+        li.selected>a, li>a:hover{
+            color: colors.$text-color;
+            text-decoration-line: underline;
+            text-decoration-color: colors.$accent-color;
+            text-decoration-thickness: $navbar-line-width;
+        }
+            
+    }
+    .center{
+        align-self: center;
+        text-align: center;
+        h3{
+            font-size: 45px;
+        }
+        h2{
+            font-size: 55px;
+        }
+    }
+    .footer{
+        background-color: black;
+        width: 100%;
+        padding: $navbar-footer-padding 0 $navbar-footer-padding 0;
+        text-align: center;
+    }
+}
+
+/*- Box Info -*/
 .container_box{
     display: flex;
     margin: 0px;
@@ -24,14 +171,6 @@ html, body{
     align-items: stretch;
 }
 
-/*- Header -*/
-header{
-    display: flex;
-    flex-flow: column wrap;
-    background-image: url("wallpaper_sky");
-}
-
-/*- Box Info -*/
 .box_info{
     color: colors.$text-secondary;
     display:flex;
@@ -64,6 +203,14 @@ header{
 
 /*--------- Small Devices ---------*/
 @media (max-width: $medium-width){
+    /*-General-*/
+    .d-small-none{
+        display:none;
+    }
+    .d-small{
+        display:inline-flex;
+    }
+    
     /*-- Box info --*/
     .box_info{
         padding:25px;
@@ -71,6 +218,12 @@ header{
         p{
             margin: 0 10% 0 10%;
         }
+    }
+ 
+    /*-Header-*/
+    header{
+        background-image: none;
+        background-color: black;
     }
 
 }
