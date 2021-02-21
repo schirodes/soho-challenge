@@ -1,0 +1,67 @@
+@font-face {
+  font-family: Graphik-Extralight;
+  src: url(/fonts/Graphik-Extralight.otf?02088dd0ef38df2459de330b0848e8dd) format("opentype");
+  font-weight: bolder;
+  font-style: normal;
+}
+/*- General -*/
+html, body {
+  font-family: Graphik-Extralight;
+  background-color: #273138;
+  color: #F9FAFA;
+  margin: 0px;
+}
+
+.container_box {
+  display: flex;
+  margin: 0px;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: stretch;
+}
+
+/*- Box Info -*/
+.box_info {
+  color: #7B7D7E;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-content: center;
+  width: 20%;
+  text-align: center;
+  flex-grow: 1;
+  padding: 50px;
+}
+.box_info h3 {
+  margin: 10px;
+  color: #02B300;
+  font-size: 25px;
+}
+.box_info p {
+  margin: 0 20% 0 20%;
+}
+
+.box_1 {
+  background-color: #3B4148;
+}
+
+.box_2 {
+  background-color: #161C21;
+}
+
+.box_3 {
+  background-color: #202A37;
+}
+
+/*--------- Small Devices ---------*/
+@media (max-width: 768px) {
+  /*-- Box info --*/
+  .box_info {
+    padding: 25px;
+    width: 100%;
+  }
+  .box_info p {
+    margin: 0 10% 0 10%;
+  }
+}

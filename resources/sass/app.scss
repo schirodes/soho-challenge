@@ -1,0 +1,76 @@
+@use "colors";
+@font-face{
+    font-family: Graphik-Extralight;
+    src: url("Graphik-Extralight.otf") format("opentype");
+    font-weight: bolder;
+    font-style: normal;
+}
+$small-width: 576px;
+$medium-width: 768px;
+
+/*- General -*/
+html, body{
+    font-family: Graphik-Extralight;
+    background-color: colors.$primary-color;
+    color: colors.$text-color;
+    margin:0px;
+}
+.container_box{
+    display: flex;
+    margin: 0px;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: stretch;
+}
+
+/*- Header -*/
+header{
+    display: flex;
+    flex-flow: column wrap;
+    background-image: url("wallpaper_sky");
+}
+
+/*- Box Info -*/
+.box_info{
+    color: colors.$text-secondary;
+    display:flex;
+    flex-flow: column;
+    justify-content: center;
+    align-content: center;
+    width: 20%;
+    text-align: center;
+    flex-grow: 1;
+    padding:50px;
+
+    h3{
+        margin: 10px;
+        color:colors.$accent-color;
+        font-size: 25px;
+    }
+    p{
+        margin: 0 20% 0 20%;
+    }
+}
+.box_1{
+    background-color: colors.$box_color_1;
+}
+.box_2{
+    background-color: colors.$box_color_2;
+}
+.box_3{
+    background-color: colors.$box_color_3;
+}
+
+/*--------- Small Devices ---------*/
+@media (max-width: $medium-width){
+    /*-- Box info --*/
+    .box_info{
+        padding:25px;
+        width:100%;
+        p{
+            margin: 0 10% 0 10%;
+        }
+    }
+
+}
