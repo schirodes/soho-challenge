@@ -4,7 +4,7 @@ Stack utilizado: Laravel y Vue.js
 
 <h4>Instalación</h4>
 <ol>
-    <li>Clonar reposiitorio</li>
+    <li>Clonar repositorio</li>
     <li>Correr npm install en el directorio</li>
     <li>Configurar config/database.php</li>
     <li>Ejecutar: php artisan migrate</li>
