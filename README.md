@@ -14,4 +14,4 @@ Stack utilizado: Laravel y Vue.js
     <li>Listo, ingresar a http://localhost:8000</li>
 </ol>
 
-<blockquote>Challenge de David Schiro (davidschiro91@gmail.com)</blockquote>
+<blockquote>Challenge de David Schiro (<a href="mailto:davidschiro91@gmail.com">davidschiro91@gmail.com</a>)</blockquote>
