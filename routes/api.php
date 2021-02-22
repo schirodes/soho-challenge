@@ -21,4 +21,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix("destacados")->group(function(){
     Route::post("/save", [CDestacados::class, 'save']);
+    Route::get("/all", [CDestacados::class, "getAll"]);
 });

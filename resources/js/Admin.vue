@@ -57,13 +57,13 @@ export default {
                 id:null,
                 titulo:null,
                 parrafo:null,
-                color_titulo:null,
-                color_background:null,
-                color_button:null,
-                color_button_text:null,
-                color_parrafo:null,
-                color_hash:null,
-                color_logo:null,
+                color_titulo:"#000000",
+                color_background:"#000000",
+                color_button:"#000000",
+                color_button_text:"#000000",
+                color_parrafo:"#000000",
+                color_hash:"#000000",
+                color_logo:"#000000",
                 hashes:null,
                 display:null,
                 logo:null,
@@ -76,7 +76,27 @@ export default {
         },
         saveProject(event){
             event.preventDefault();
-            axios.post("")
+            const config = { headers: { 'content-type': 'multipart/form-data' } };
+            
+            let frmData = new FormData();
+            
+            if(this.id)
+                frmData.append("id",this.proyecto.id);
+
+            frmData.append("titulo",this.proyecto.titulo);
+            frmData.append("parrafo",this.proyecto.parrafo);
+            frmData.append("color_titulo",this.proyecto.color_titulo);
+            frmData.append("color_background",this.proyecto.color_background);
+            frmData.append("color_button",this.proyecto.color_button);
+            frmData.append("color_button_text",this.proyecto.color_button_text);
+            frmData.append("color_parrafo",this.proyecto.color_parrafo);
+            frmData.append("color_hash",this.proyecto.color_hash);
+            frmData.append("color_logo",this.proyecto.color_logo);
+            frmData.append("hashes",this.proyecto.hashes);
+            frmData.append("display",this.proyecto.display);
+            frmData.append("logo",this.proyecto.logo);
+
+            this.axios.post("/destacados/save", frmData, config);
         }
     }
 }

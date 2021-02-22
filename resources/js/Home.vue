@@ -29,12 +29,28 @@
         <section class="d-flex flex-flow-c w-100 text-center jc-center align-center mt-separador"> 
             <h1 class="titulo">Proyectos destacados</h1>
             <p class="subtitulo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non nibh tortor. Etiam facilisis tristique ex, sit amet sagittis neque consequat quis. Mauris vehicula tortor est, non suscipit augue pretium at. Praesent rhoncus nibh justo, egestas finibus odio ultricies non. Duis in massa commodo mi vulputate varius. Integer ultrices neque dui, non sodales nibh viverra in. Quisque dignissim vulputate mi, eget faucibus odio rutrum id. Ut tempus fringilla purus sed congue.</p>
+            
         </section>
     </div>
 </template>
 
 <script>
 export default {
-    
+    data(){
+        return{
+            destacados:[]
+        }
+    },
+    mounted(){
+        this.getDestacados();
+    },
+    methods:{
+        getDestacados(){
+            this.axios.get("/destacados/all")
+            .then(response=>{
+                this.destacados = JSON.parse(JSON.stringify(response.data.destacados));
+            });
+        }
+    }
 }
 </script>
