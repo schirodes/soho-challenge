@@ -26,6 +26,10 @@ html, body {
   width: 33%;
 }
 
+.w-66 {
+  width: 66%;
+}
+
 .d-flex {
   display: flex;
 }
@@ -50,6 +54,38 @@ html, body {
   text-align: center;
 }
 
+input, select, textarea {
+  border-radius: 4px;
+  flex-grow: 10;
+  border: none;
+  height: 25px;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  height: 80px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border: 3px solid #02B300;
+}
+
+label {
+  flex-grow: 1;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  font-size: 18px;
+  text-align: end;
+}
+
+.input-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
 .d-small-none {
   display: inline;
 }
@@ -66,10 +102,10 @@ html, body {
 .titulo:after {
   content: "";
   height: 3px;
-  width: 10%;
+  width: 50px;
   background: #02B300;
   position: absolute;
-  left: calc(50% - 5%);
+  left: calc(50% - 25px);
   bottom: -10px;
 }
 
@@ -118,6 +154,10 @@ html, body {
 .my-15 {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.mt-separador {
+  margin-top: 50px;
 }
 
 .text-primary {
@@ -289,5 +329,13 @@ header .footer {
   header {
     background-image: none;
     background-color: black;
+  }
+
+  /*-Forms-*/
+  .input-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
   }
 }
