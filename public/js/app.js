@@ -1991,6 +1991,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -20208,76 +20232,259 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._m(0), _vm._v(" "), _c("router-view")], 1)
+  return _c(
+    "div",
+    { attrs: { id: "app" } },
+    [
+      _c("header", [
+        _c("nav", [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "dropdown m-15" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("ul", [
+              _c(
+                "li",
+                [_c("router-link", { attrs: { to: "/" } }, [_vm._v("Inicio")])],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                [
+                  _c(
+                    "router-link",
+                    { staticClass: "text-danger", attrs: { to: "/admin" } },
+                    [_vm._v("Administrador")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                [
+                  _c("router-link", { attrs: { to: "#Nosotros" } }, [
+                    _vm._v("Nosotros")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                [
+                  _c("router-link", { attrs: { to: "#Servicios" } }, [
+                    _vm._v("Servicios")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                [
+                  _c("router-link", { attrs: { to: "#CExito" } }, [
+                    _vm._v("Casos de éxito")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                [
+                  _c("router-link", { attrs: { to: "#Unete" } }, [
+                    _vm._v("Únete al equipo")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                [
+                  _c("router-link", { attrs: { to: "#Contacto" } }, [
+                    _vm._v("Contacto")
+                  ])
+                ],
+                1
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3)
+      ]),
+      _vm._v(" "),
+      _c("router-view"),
+      _vm._v(" "),
+      _vm._m(4),
+      _vm._v(" "),
+      _vm._m(5)
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("header", [
-      _c("nav", [
-        _c("div", { staticClass: "logo m-15" }, [
-          _c("img", {
-            attrs: { src: "/images/logo-soho.png", alt: "Logo Soho" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("ul", { staticClass: "m-15" }, [
-          _c("li", { staticClass: "selected" }, [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Inicio")])
-          ]),
-          _vm._v(" "),
-          _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Nosotros")])]),
-          _vm._v(" "),
-          _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Servicios")])]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Casos de éxito")])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Únete al equipo")])
-          ]),
-          _vm._v(" "),
-          _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Contacto")])])
-        ])
+    return _c("div", { staticClass: "logo m-15" }, [
+      _c("img", { attrs: { src: "/images/logo-soho.png", alt: "Logo Soho" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "d-small mx-5", attrs: { type: "button" } },
+      [_c("i", { staticClass: "material-icons" }, [_vm._v("menu")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "center d-small-none" }, [
+      _c("h3", { staticClass: "my-5" }, [_vm._v("Nos especializamos en")]),
+      _vm._v(" "),
+      _c("h2", { staticClass: "text-accent my-5" }, [
+        _vm._v("interfaces digitales que los usuarios aman")
       ]),
       _vm._v(" "),
-      _c("section", { staticClass: "center d-small-none" }, [
-        _c("h3", { staticClass: "my-5" }, [_vm._v("Nos especializamos en")]),
-        _vm._v(" "),
-        _c("h2", { staticClass: "text-accent my-5" }, [
-          _vm._v("interfaces digitales que los usuarios aman")
-        ]),
-        _vm._v(" "),
-        _c("a", { staticClass: "button m-15", attrs: { href: "#" } }, [
+      _c("a", { staticClass: "button m-15", attrs: { href: "#" } }, [
+        _vm._v("Hablemos de tu proyecto")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "footer d-small-none" }, [
+      _c("i", { staticClass: "material-icons text-danger" }, [
+        _vm._v("sensors")
+      ]),
+      _vm._v(" "),
+      _c("b", [_vm._v("EN DIRECTO")]),
+      _vm._v(" - SOHO está presente en el "),
+      _c("b", [_vm._v("DIGITALBANK MONTEVIDEO")]),
+      _vm._v(
+        '. "Experiencia de Usuario" por Alvaro Añón (SEO de Soho).\n            '
+      ),
+      _c("a", { staticClass: "button mx-10", attrs: { href: "#" } }, [
+        _vm._v("Ver evento")
+      ]),
+      _vm._v(" "),
+      _c(
+        "a",
+        { staticClass: "button transparent transparent", attrs: { href: "#" } },
+        [_vm._v("Próximos eventos")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "section",
+      { staticClass: "mt-separador d-flex jc-center align-center" },
+      [
+        _c("a", { staticClass: "button", attrs: { href: "#" } }, [
           _vm._v("Hablemos de tu proyecto")
         ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", { staticClass: "mt-separador" }, [
+      _c(
+        "i",
+        { staticClass: "material-icons text-accent icon-center d-small-none" },
+        [_vm._v("add_location")]
+      ),
+      _vm._v(" "),
+      _c("section", { staticClass: "d-flex m-10 jc-start" }, [
+        _vm._v("© "),
+        _c("b", [_vm._v("2017")]),
+        _vm._v(" SOHO internet + humana")
       ]),
       _vm._v(" "),
-      _c("section", { staticClass: "footer d-small-none" }, [
-        _c("i", { staticClass: "material-icons text-danger" }, [
-          _vm._v("sensors")
-        ]),
-        _vm._v(" "),
-        _c("b", [_vm._v("EN DIRECTO")]),
-        _vm._v(" - SOHO está presente en el "),
-        _c("b", [_vm._v("DIGITALBANK MONTEVIDEO")]),
-        _vm._v(
-          '. "Experiencia de Usuario" por Alvaro Añón (SEO de Soho).\n            '
+      _c("section", { staticClass: "d-flex m-10 jc-center" }, [
+        _c(
+          "a",
+          {
+            staticClass: "text-accent mx-25 no-decoration",
+            attrs: { href: "#" }
+          },
+          [_vm._v("Visítanos")]
         ),
-        _c("a", { staticClass: "button mx-10", attrs: { href: "#" } }, [
-          _vm._v("Ver evento")
-        ]),
         _vm._v(" "),
         _c(
           "a",
           {
-            staticClass: "button transparent transparent",
+            staticClass: "text-accent mx-25 no-decoration",
             attrs: { href: "#" }
           },
-          [_vm._v("Próximos eventos")]
+          [_vm._v("Escríbenos")]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "text-accent mx-25 no-decoration",
+            attrs: { href: "#" }
+          },
+          [_vm._v("Llámanos")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "d-flex m-10 jc-end" }, [
+        _c(
+          "a",
+          {
+            staticClass: "facebook-color no-decoration mx-15",
+            attrs: { href: "#" }
+          },
+          [_vm._v("Facebook")]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "twitter-color no-decoration mx-15",
+            attrs: { href: "#" }
+          },
+          [_vm._v("Twitter")]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "linkedin-color no-decoration mx-15",
+            attrs: { href: "#" }
+          },
+          [_vm._v("LinkedIn")]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "youtube-color no-decoration mx-15",
+            attrs: { href: "#" }
+          },
+          [_vm._v("YouTube")]
         )
       ])
     ])
@@ -20334,13 +20541,11 @@ var render = function() {
               {
                 key: index,
                 staticClass: "destacado-block",
-                style: {
-                  backgroundColor: destacado.color_background,
-                  flexFlow: index && index % 2 !== 0 ? "row-reverse" : "row"
-                }
+                class: { "destacado-invertido": index && index % 2 !== 0 },
+                style: { backgroundColor: destacado.color_background }
               },
               [
-                _c("div", { staticClass: "d-flex w-50" }, [
+                _c("div", { staticClass: "d-flex display" }, [
                   _c("img", {
                     attrs: {
                       src: "storage/" + destacado.path_display,
@@ -20349,7 +20554,7 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "d-flex w-50 descripcion" }, [
+                _c("div", { staticClass: "d-flex descripcion" }, [
                   _c("div", { staticClass: "logo" }, [
                     _c("img", {
                       attrs: {

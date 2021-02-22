@@ -33,9 +33,9 @@
             <p class="subtitulo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non nibh tortor. Etiam facilisis tristique ex, sit amet sagittis neque consequat quis. Mauris vehicula tortor est, non suscipit augue pretium at. Praesent rhoncus nibh justo, egestas finibus odio ultricies non. Duis in massa commodo mi vulputate varius. Integer ultrices neque dui, non sodales nibh viverra in. Quisque dignissim vulputate mi, eget faucibus odio rutrum id. Ut tempus fringilla purus sed congue.</p>
             
             <article class="d-flex flex-flow-c w-100">
-                <div class="destacado-block" v-for="(destacado, index) in destacados" :style="{backgroundColor: destacado.color_background, flexFlow: index && (index % 2 !== 0) ? 'row-reverse':'row'}" :key="index">
-                    <div class="d-flex w-50"><img :src="'storage/'+destacado.path_display" alt="Display"></div>
-                    <div class="d-flex w-50 descripcion">
+                <div class="destacado-block" v-for="(destacado, index) in destacados" :class="{'destacado-invertido' : (index && (index % 2 !== 0))}" :style="{backgroundColor: destacado.color_background}" :key="index">
+                    <div class="d-flex display"><img :src="'storage/'+destacado.path_display" alt="Display"></div>
+                    <div class="d-flex descripcion">
                         <div class="logo"><img :src="'storage/'+destacado.path_logo" alt="Logo"></div>
                         <div class="line-logo" :style="{backgroundColor: destacado.color_logo}"></div>
 

@@ -149,6 +149,10 @@ header{
         align-items: center;
         flex-flow: row;
 
+        .dropdown{
+            flex-flow: row;
+        }
+
         div, section, article{
             display: flex;
         }
@@ -171,7 +175,7 @@ header{
             color: colors.$text-secondary;
             text-decoration-line: none;
         }
-        li.selected>a, li>a:hover{
+        .router-link-exact-active, li>a:hover{
             color: colors.$text-color;
             text-decoration-line: underline;
             text-decoration-color: colors.$accent-color;
@@ -246,6 +250,9 @@ header{
         max-width: 100%;
         max-height: 100%;
     }
+    .descripcion .display{
+        width: 50%;
+    }
     .descripcion{
         padding:60px 60px 20px 60px;
         flex-flow: column;
@@ -271,6 +278,9 @@ header{
         }
     }
 }
+.destacado-invertido{
+    flex-flow: row-reverse;
+}
 
 /*- Footer -*/
 $footer-h: 100px;
@@ -289,6 +299,10 @@ footer{
     background-color: black;
     height: $footer-h;
     
+    section{
+        width: 33%;
+    }
+
     .icon-center{
         position:absolute;
         left: calc(50% - 25px);
@@ -300,7 +314,7 @@ footer{
 @media (max-width: $medium-width){
     /*-General-*/
     .d-small-none{
-        display:none;
+        display:none !important;
     }
     .d-small{
         display:inline-flex;
@@ -314,12 +328,54 @@ footer{
             margin: 0 10% 0 10%;
         }
     }
+
+    /*- Destacado -*/
+    .destacado-block{
+        flex-flow: column-reverse;
+        
+        .descripcion .display{
+            width: 100%;
+        }
+    }
  
     /*-Header-*/
     header{
         background-image: none;
         background-color: black;
+        height: 100px;
+        nav{
+            position: relative;
+            .dropdown{
+                flex-flow:column;
+            }
+            ul{
+                display: none;
+                position: absolute;
+                flex-flow: column;
+                background-color: colors.$primary-color;
+                z-index: 100;
+                right: 0px;
+                top:90px;
+                margin: 0;
+                border: 3px solid colors.$accent-color;
+            }
+            li{
+                padding: 5px 0 5px 0;
+            }
+
+            .dropdown:hover ul{
+                display: block;
+            }
+        }
+    }
+
+    /*- Footer -*/
+    footer{
+        flex-flow: column;
         height: auto;
+        section{
+            width:100%;
+        }
     }
 
     /*-Forms-*/
@@ -328,7 +384,7 @@ footer{
         justify-content: center;
         align-items: center;
         width: 70%;
-        
+
     }
 
 }

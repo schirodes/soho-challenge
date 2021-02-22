@@ -1,17 +1,21 @@
 <template>
-    <div>
+    <div id="app">
         <header>
             <nav>
                 <div class="logo m-15"><img src="/images/logo-soho.png" alt="Logo Soho"></div>
                 
-                <ul class="m-15">
-                    <li class="selected"><a href="#">Inicio</a></li>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Casos de éxito</a></li>
-                    <li><a href="#">Únete al equipo</a></li>
-                    <li><a href="#">Contacto</a></li>
-                </ul>
+                <div class="dropdown m-15">
+                    <button type="button" class="d-small mx-5"><i class="material-icons">menu</i></button>
+                    <ul>
+                        <li><router-link to="/">Inicio</router-link></li>
+                        <li><router-link to="/admin" class="text-danger">Administrador</router-link></li>
+                        <li><router-link to="#Nosotros">Nosotros</router-link></li>
+                        <li><router-link to="#Servicios">Servicios</router-link></li>
+                        <li><router-link to="#CExito">Casos de éxito</router-link></li>
+                        <li><router-link to="#Unete">Únete al equipo</router-link></li>
+                        <li><router-link to="#Contacto">Contacto</router-link></li>
+                    </ul>
+                </div>
             </nav>
             <section class="center d-small-none">
                 <h3 class="my-5">Nos especializamos en</h3>
@@ -27,6 +31,26 @@
         </header>
 
         <router-view />
+
+        <section class="mt-separador d-flex jc-center align-center">
+            <a href="#" class="button">Hablemos de tu proyecto</a>
+        </section>
+
+        <footer class="mt-separador">
+            <i class="material-icons text-accent icon-center d-small-none">add_location</i>
+            <section class="d-flex m-10 jc-start">© <b>2017</b>&nbsp;SOHO internet + humana</section>
+            <section class="d-flex m-10 jc-center">
+                <a href="#" class="text-accent mx-25 no-decoration">Visítanos</a>
+                <a href="#" class="text-accent mx-25 no-decoration">Escríbenos</a>
+                <a href="#" class="text-accent mx-25 no-decoration">Llámanos</a>
+            </section>
+            <section class="d-flex m-10 jc-end">
+                <a href="#" class="facebook-color no-decoration mx-15">Facebook</a>
+                <a href="#" class="twitter-color no-decoration mx-15">Twitter</a>
+                <a href="#" class="linkedin-color no-decoration mx-15">LinkedIn</a>
+                <a href="#" class="youtube-color no-decoration mx-15">YouTube</a>
+            </section>
+        </footer>
     </div>
 </template>
 
