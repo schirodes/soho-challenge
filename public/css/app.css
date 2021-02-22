@@ -74,6 +74,16 @@ html, body, #app {
   text-align: end;
 }
 
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: white;
+}
+
 input, select, textarea {
   border-radius: 4px;
   flex-grow: 10;

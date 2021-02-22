@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <!-- Navbar & Encabezado -->
         <header>
             <nav>
                 <div class="logo m-15"><img src="/images/logo-soho.png" alt="Logo Soho"></div>
@@ -29,12 +30,9 @@
                 <a href="#" class="button transparent transparent">Próximos eventos</a>
             </section>
         </header>
-
+        
+        <!-- Contenedor -->
         <router-view />
-
-        <section class="mt-separador d-flex jc-center align-center">
-            <a href="#" class="button">Hablemos de tu proyecto</a>
-        </section>
 
         <footer class="mt-separador">
             <i class="material-icons text-accent icon-center d-small-none">add_location</i>

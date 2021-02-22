@@ -20,6 +20,19 @@ class CDestacados extends Controller
         return response()->json(["destacados"=>$destacados], 200);
     }
 
+    public function delete(Request $req){
+        $req->validate([
+            "id"=>"required|numeric|exists:destacados"
+        ]);
+
+        DestacadoHash::where("destacado_id",$req->id)->delete();
+        $destacado = Destacado::find($req->id);
+        Storage::disk("public")->delete($destacado->path_logo);
+        Storage::disk("public")->delete($destacado->path_display);
+
+        $destacado->delete();
+    }
+
     public function save(Request $req){
         $req->validate([
             "id"=>"sometimes|required|numeric|exists:destacados",
@@ -33,8 +46,8 @@ class CDestacados extends Controller
             "color_hash"=>"required|string",
             "color_logo"=>"required|string",
             "hashes"=>"required|string",
-            "display"=>"required|image",
-            "logo"=>"required|image"
+            "display"=>"required_without:id|image",
+            "logo"=>"required_without:id|image"
         ]);
         
         //Validación: Ok, Creo el destacado
@@ -53,13 +66,20 @@ class CDestacados extends Controller
             
             //Random String para guardado
             $random_str = Str::random(40);
+
             //Guardado de imagenes en Storage
-            $destacado->path_logo = $req->file("logo")->storeAs("destacados", $random_str."_logo.".$req->file('logo')->extension(), 'public');
-            $destacado->path_display = $req->file("display")->storeAs("destacados", $random_str."_display.".$req->file('display')->extension(), 'public');
+            if($req->has("logo"))
+                $destacado->path_logo = $req->file("logo")->storeAs("destacados", $random_str."_logo.".$req->file('logo')->extension(), 'public');
+            if($req->has("display"))
+                $destacado->path_display = $req->file("display")->storeAs("destacados", $random_str."_display.".$req->file('display')->extension(), 'public');
 
             $destacado->save();
 
             $v_hashes = explode(",", $req->hashes);
+
+            //Borro hash por prevención en caso de actualización
+            DestacadoHash::where("destacado_id",$destacado->id)->delete();
+
             foreach($v_hashes as $hash){
                 $h = new DestacadoHash();
                 $h->hash = trim($hash);

@@ -1896,6 +1896,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -1913,12 +1929,33 @@ __webpack_require__.r(__webpack_exports__);
         hashes: null,
         display: null,
         logo: null
-      }
+      },
+      destacados: []
     };
+  },
+  mounted: function mounted() {
+    this.getDestacados();
   },
   methods: {
     fileChange: function fileChange(event) {
       this.proyecto[event.target.name] = event.target.files[0];
+    },
+    limpiarForm: function limpiarForm() {
+      this.proyecto = {
+        id: null,
+        titulo: null,
+        parrafo: null,
+        color_titulo: "#000000",
+        color_background: "#000000",
+        color_button: "#000000",
+        color_button_text: "#000000",
+        color_parrafo: "#000000",
+        color_hash: "#000000",
+        color_logo: "#000000",
+        hashes: null,
+        display: null,
+        logo: null
+      };
     },
     saveProject: function saveProject(event) {
       event.preventDefault();
@@ -1927,8 +1964,9 @@ __webpack_require__.r(__webpack_exports__);
           'content-type': 'multipart/form-data'
         }
       };
-      var frmData = new FormData();
-      if (this.id) frmData.append("id", this.proyecto.id);
+      var frmData = new FormData(); //Append ID si existe
+
+      if (this.proyecto.id) frmData.append("id", this.proyecto.id);
       frmData.append("titulo", this.proyecto.titulo);
       frmData.append("parrafo", this.proyecto.parrafo);
       frmData.append("color_titulo", this.proyecto.color_titulo);
@@ -1938,10 +1976,56 @@ __webpack_require__.r(__webpack_exports__);
       frmData.append("color_parrafo", this.proyecto.color_parrafo);
       frmData.append("color_hash", this.proyecto.color_hash);
       frmData.append("color_logo", this.proyecto.color_logo);
-      frmData.append("hashes", this.proyecto.hashes);
-      frmData.append("display", this.proyecto.display);
-      frmData.append("logo", this.proyecto.logo);
-      this.axios.post("/destacados/save", frmData, config);
+      frmData.append("hashes", this.proyecto.hashes); //Agregar archivos si existen (en caso de Update, no suele enviarse)
+
+      if (this.proyecto.display) frmData.append("display", this.proyecto.display);
+      if (this.proyecto.logo) frmData.append("logo", this.proyecto.logo);
+      this.axios.post("/destacados/save", frmData, config).then(function (res) {
+        alert("Destacado guardado");
+      })["catch"](function (err) {
+        if (err.response.data.error) //Hay error propio mediante catch php
+          alert("Error: ".concat(err.response.data.error));else if (err.response.data.errors) {
+          //Hay error mediante validacion
+          //Junto mediante Object->Keys
+          var error_data = err.response.data.errors;
+          var error_merge = Object.keys(error_data).map(function (key) {
+            return error_data[key].join("\n");
+          }).join("\n");
+          alert("Error:\n".concat(error_merge));
+        }
+      });
+    },
+    getDestacados: function getDestacados() {
+      var _this = this;
+
+      this.axios.get("/destacados/all").then(function (response) {
+        _this.destacados = JSON.parse(JSON.stringify(response.data.destacados));
+      });
+    },
+    editDestacado: function editDestacado(index) {
+      this.proyecto = JSON.parse(JSON.stringify(this.destacados[index]));
+      this.proyecto.logo = null;
+      this.proyecto.display = null; //Transformo Hashes en String separados por coma (,)
+
+      this.proyecto.hashes = this.proyecto.destacado_hashes.map(function (d) {
+        return d.hash;
+      }).join();
+    },
+    deleteDestacado: function deleteDestacado(index) {
+      var _this2 = this;
+
+      if (!confirm("Seguro de borrar?")) return;
+      this.axios["delete"]("/destacados/delete", {
+        params: {
+          id: this.destacados[index].id
+        }
+      }).then(function (res) {
+        alert("Borrado existosamente");
+
+        _this2.getDestacados();
+      })["catch"](function (err) {
+        alert("Ocurrió un error al borrar");
+      });
     }
   }
 });
@@ -2013,8 +2097,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -2030,6 +2112,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
 //
 //
 //
@@ -19881,6 +19967,65 @@ var render = function() {
     "div",
     { staticClass: "d-flex flex-flow-c jc-center align-center" },
     [
+      _c("h1", { staticClass: "titulo" }, [_vm._v("Proyectos cargados")]),
+      _vm._v(" "),
+      _vm.destacados.length
+        ? _c("table", { staticClass: "w-66 text-center" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.destacados, function(destacado, index) {
+                return _c("tr", { key: destacado.id }, [
+                  _c("td", [
+                    _c("img", {
+                      attrs: {
+                        src: "storage/" + destacado.path_logo,
+                        alt: "Logo"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(destacado.titulo))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c("button", { attrs: { type: "button mx-5" } }, [
+                      _c(
+                        "i",
+                        {
+                          staticClass: "material-icons",
+                          on: {
+                            click: function($event) {
+                              return _vm.editDestacado(index)
+                            }
+                          }
+                        },
+                        [_vm._v("edit")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("button", { attrs: { type: "button mx-5" } }, [
+                      _c(
+                        "i",
+                        {
+                          staticClass: "material-icons text-danger",
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteDestacado(index)
+                            }
+                          }
+                        },
+                        [_vm._v("delete")]
+                      )
+                    ])
+                  ])
+                ])
+              }),
+              0
+            )
+          ])
+        : _c("p", [_vm._v("No hay proyectos cargados")]),
+      _vm._v(" "),
       _c(
         "form",
         {
@@ -19893,7 +20038,13 @@ var render = function() {
         },
         [
           _c("h1", { staticClass: "titulo" }, [
-            _vm._v("Nuevo proyecto destacado")
+            _vm._v(
+              _vm._s(
+                _vm.proyecto.id
+                  ? "Editando proyecto: #" + _vm.proyecto.id
+                  : "Nuevo proyecto destacado"
+              )
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "input-block my-10" }, [
@@ -20172,7 +20323,11 @@ var render = function() {
             _c("label", { staticClass: "mx-15 w-33" }, [_vm._v("Proyecto")]),
             _c("input", {
               staticClass: "w-66",
-              attrs: { name: "display", type: "file", required: "" },
+              attrs: {
+                name: "display",
+                type: "file",
+                required: !_vm.proyecto.id
+              },
               on: {
                 change: function($event) {
                   return _vm.fileChange($event)
@@ -20185,7 +20340,7 @@ var render = function() {
             _c("label", { staticClass: "mx-15 w-33" }, [_vm._v("Logo")]),
             _c("input", {
               staticClass: "w-66",
-              attrs: { name: "logo", type: "file", required: "" },
+              attrs: { name: "logo", type: "file", required: !_vm.proyecto.id },
               on: {
                 change: function($event) {
                   return _vm.fileChange($event)
@@ -20194,7 +20349,19 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _vm._m(0)
+          _c("div", { staticClass: "input-block my-10" }, [
+            _c("button", { attrs: { type: "submit" } }, [_vm._v("Enviar")]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "mx-10",
+                attrs: { type: "button" },
+                on: { click: _vm.limpiarForm }
+              },
+              [_vm._v("Limpiar form")]
+            )
+          ])
         ]
       )
     ]
@@ -20205,8 +20372,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-block my-10" }, [
-      _c("button", { attrs: { type: "submit" } }, [_vm._v("Enviar")])
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Logo")]),
+        _c("th", [_vm._v("Título")]),
+        _c("th", [_vm._v("Acciones")])
+      ])
     ])
   }
 ]
@@ -20322,9 +20493,7 @@ var render = function() {
       _vm._v(" "),
       _c("router-view"),
       _vm._v(" "),
-      _vm._m(4),
-      _vm._v(" "),
-      _vm._m(5)
+      _vm._m(4)
     ],
     1
   )
@@ -20389,20 +20558,6 @@ var staticRenderFns = [
         [_vm._v("Próximos eventos")]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "section",
-      { staticClass: "mt-separador d-flex jc-center align-center" },
-      [
-        _c("a", { staticClass: "button", attrs: { href: "#" } }, [
-          _vm._v("Hablemos de tu proyecto")
-        ])
-      ]
-    )
   },
   function() {
     var _vm = this
@@ -20635,7 +20790,9 @@ var render = function() {
           0
         )
       ]
-    )
+    ),
+    _vm._v(" "),
+    _vm._m(2)
   ])
 }
 var staticRenderFns = [
@@ -20697,6 +20854,20 @@ var staticRenderFns = [
         ])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "section",
+      { staticClass: "mt-separador d-flex jc-center align-center" },
+      [
+        _c("a", { staticClass: "button", attrs: { href: "#" } }, [
+          _vm._v("Hablemos de tu proyecto")
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
