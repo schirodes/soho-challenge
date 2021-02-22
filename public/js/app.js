@@ -2042,6 +2042,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -20282,81 +20305,192 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c(
+      "section",
+      {
+        staticClass:
+          "d-flex flex-flow-c w-100 text-center jc-center align-center mt-separador"
+      },
+      [
+        _c("h1", { staticClass: "titulo" }, [_vm._v("Proyectos destacados")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "subtitulo" }, [
+          _vm._v(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non nibh tortor. Etiam facilisis tristique ex, sit amet sagittis neque consequat quis. Mauris vehicula tortor est, non suscipit augue pretium at. Praesent rhoncus nibh justo, egestas finibus odio ultricies non. Duis in massa commodo mi vulputate varius. Integer ultrices neque dui, non sodales nibh viverra in. Quisque dignissim vulputate mi, eget faucibus odio rutrum id. Ut tempus fringilla purus sed congue."
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "article",
+          { staticClass: "d-flex flex-flow-c w-100" },
+          _vm._l(_vm.destacados, function(destacado, index) {
+            return _c(
+              "div",
+              {
+                key: index,
+                staticClass: "destacado-block",
+                style: {
+                  backgroundColor: destacado.color_background,
+                  flexFlow: index && index % 2 !== 0 ? "row-reverse" : "row"
+                }
+              },
+              [
+                _c("div", { staticClass: "d-flex w-50" }, [
+                  _c("img", {
+                    attrs: {
+                      src: "storage/" + destacado.path_display,
+                      alt: "Display"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "d-flex w-50 descripcion" }, [
+                  _c("div", { staticClass: "logo" }, [
+                    _c("img", {
+                      attrs: {
+                        src: "storage/" + destacado.path_logo,
+                        alt: "Logo"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "line-logo",
+                    style: { backgroundColor: destacado.color_logo }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "d-flex my-10",
+                      style: { color: destacado.color_titulo }
+                    },
+                    [_vm._v(_vm._s(destacado.titulo))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "d-flex",
+                      style: { color: destacado.color_parrafo }
+                    },
+                    [_vm._v(_vm._s(destacado.parrafo))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "d-flex flex-flow-r my-15",
+                      style: { color: destacado.color_hash }
+                    },
+                    [
+                      _c("i", { staticClass: "material-icons d-flex" }, [
+                        _vm._v("local_offer")
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(destacado.destacado_hashes, function(hash) {
+                        return _c(
+                          "a",
+                          {
+                            key: hash.id,
+                            staticClass: "d-flex mx-10",
+                            style: { color: destacado.color_hash },
+                            attrs: { href: "#" }
+                          },
+                          [_vm._v(_vm._s(hash.hash))]
+                        )
+                      })
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "d-flex my-15" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button",
+                        style: {
+                          color: destacado.color_button_text,
+                          backgroundColor: destacado.color_button
+                        },
+                        attrs: { href: "#" }
+                      },
+                      [_vm._v("Ver detalles")]
+                    )
+                  ])
+                ])
+              ]
+            )
+          }),
+          0
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "section",
-        {
-          staticClass:
-            "d-flex flex-flow-c w-100 text-center jc-center align-center mt-separador"
-        },
-        [
-          _c("h1", { staticClass: "titulo" }, [
-            _vm._v("17 años de experiencia en pos de tu proyecto")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "subtitulo" }, [
-            _vm._v(
-              "Especializados desde 1996 en usabilidad, experiencia del usuario (UX) y diseño de experiencias de proyectos digitales. Aportamos estrategia e innovación centrada en el usuario y los objetivos de negocio de tu proyecto. Cotrabajando mejoraremos tu tasa conversión, KPI's, ROI y los resultados de la actual publicadad PPC (pay per click)"
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "container_box" }, [
-        _c("section", { staticClass: "box_info box_1" }, [
-          _c("h3", [_vm._v("Estrategía, usabilidad y ux")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n            Te ofrecemos excelente usabilidad y experiencia del usuario en tu proyecto, junto a una visión innovadora\n            "
-            )
-          ])
+    return _c(
+      "section",
+      {
+        staticClass:
+          "d-flex flex-flow-c w-100 text-center jc-center align-center mt-separador"
+      },
+      [
+        _c("h1", { staticClass: "titulo" }, [
+          _vm._v("17 años de experiencia en pos de tu proyecto")
         ]),
         _vm._v(" "),
-        _c("section", { staticClass: "box_info box_2" }, [
-          _c("h3", [_vm._v("Mejoramos la experiencia")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n            Tangibilizamos tu proyecto digital a través de un diseño centrado en el usuario y técnicas avanzadas\n            "
-            )
-          ])
-        ]),
+        _c("p", { staticClass: "subtitulo" }, [
+          _vm._v(
+            "Especializados desde 1996 en usabilidad, experiencia del usuario (UX) y diseño de experiencias de proyectos digitales. Aportamos estrategia e innovación centrada en el usuario y los objetivos de negocio de tu proyecto. Cotrabajando mejoraremos tu tasa conversión, KPI's, ROI y los resultados de la actual publicadad PPC (pay per click)"
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container_box" }, [
+      _c("section", { staticClass: "box_info box_1" }, [
+        _c("h3", [_vm._v("Estrategía, usabilidad y ux")]),
         _vm._v(" "),
-        _c("section", { staticClass: "box_info box_3" }, [
-          _c("h3", [_vm._v("Medición continua de objetivos")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n            Implementación, testig con usuarios y medición continua son necesarias para garantizar el exito de tu proyecto\n            "
-            )
-          ])
+        _c("p", [
+          _vm._v(
+            "\n            Te ofrecemos excelente usabilidad y experiencia del usuario en tu proyecto, junto a una visión innovadora\n            "
+          )
         ])
       ]),
       _vm._v(" "),
-      _c(
-        "section",
-        {
-          staticClass:
-            "d-flex flex-flow-c w-100 text-center jc-center align-center mt-separador"
-        },
-        [
-          _c("h1", { staticClass: "titulo" }, [_vm._v("Proyectos destacados")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "subtitulo" }, [
-            _vm._v(
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non nibh tortor. Etiam facilisis tristique ex, sit amet sagittis neque consequat quis. Mauris vehicula tortor est, non suscipit augue pretium at. Praesent rhoncus nibh justo, egestas finibus odio ultricies non. Duis in massa commodo mi vulputate varius. Integer ultrices neque dui, non sodales nibh viverra in. Quisque dignissim vulputate mi, eget faucibus odio rutrum id. Ut tempus fringilla purus sed congue."
-            )
-          ])
-        ]
-      )
+      _c("section", { staticClass: "box_info box_2" }, [
+        _c("h3", [_vm._v("Mejoramos la experiencia")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "\n            Tangibilizamos tu proyecto digital a través de un diseño centrado en el usuario y técnicas avanzadas\n            "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "box_info box_3" }, [
+        _c("h3", [_vm._v("Medición continua de objetivos")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "\n            Implementación, testig con usuarios y medición continua son necesarias para garantizar el exito de tu proyecto\n            "
+          )
+        ])
+      ])
     ])
   }
 ]

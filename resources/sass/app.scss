@@ -18,7 +18,7 @@ html, body{
     height: 100%;
 }
 .w-100{width:100%;} .w-50{width:50%} .w-33{width:33%} .w-66{width: 66%}
-.d-flex{display:flex} .flex-flow-c{flex-flow: column;} .flex-flow-r{flex-flow: row;} .jc-center{justify-content: center;} .align-center{align-items: center;} .text-center{text-align:center}
+.d-flex{display:flex !important} .flex-flow-c{flex-flow: column;} .flex-flow-r{flex-flow: row;} .jc-center{justify-content: center;} .align-center{align-items: center;} .text-center{text-align:center}
 
 //Forms
 input, select, textarea{
@@ -229,6 +229,41 @@ header{
 }
 .box_3{
     background-color: colors.$box_color_3;
+}
+
+/*- Destacados -*/
+.destacado-block{
+    padding-top:50px;
+    display: flex;
+    flex-flow: row;
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .descripcion{
+        padding:60px 60px 20px 60px;
+        flex-flow: column;
+        .logo{
+            width:auto;
+            height: auto;
+            max-width: 30%;
+            max-height: 20%;
+            text-align: start;
+        }
+        .line-logo{
+            margin: 15px 0 0 0;
+            height: 4px;
+            width:10%;
+            background-color: colors.$accent-color;
+        }
+        p{
+            text-align: start;
+        }
+        h3{
+            margin-top:25px;
+            font-size: 35px;
+        }
+    }
 }
 
 /*--------- Small Devices ---------*/

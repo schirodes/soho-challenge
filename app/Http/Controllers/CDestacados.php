@@ -54,8 +54,8 @@ class CDestacados extends Controller
             //Random String para guardado
             $random_str = Str::random(40);
             //Guardado de imagenes en Storage
-            $destacado->path_logo = $req->file("logo")->storeAs("public/destacados", $random_str."_logo.".$req->file('logo')->extension());
-            $destacado->path_display = $req->file("display")->storeAs("public/destacados", $random_str."_display.".$req->file('display')->extension());
+            $destacado->path_logo = $req->file("logo")->storeAs("destacados", $random_str."_logo.".$req->file('logo')->extension(), 'public');
+            $destacado->path_display = $req->file("display")->storeAs("destacados", $random_str."_display.".$req->file('display')->extension(), 'public');
 
             $destacado->save();
 

@@ -31,7 +31,7 @@ html, body {
 }
 
 .d-flex {
-  display: flex;
+  display: flex !important;
 }
 
 .flex-flow-c {
@@ -303,6 +303,41 @@ header .footer {
 
 .box_3 {
   background-color: #202A37;
+}
+
+/*- Destacados -*/
+.destacado-block {
+  padding-top: 50px;
+  display: flex;
+  flex-flow: row;
+}
+.destacado-block img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.destacado-block .descripcion {
+  padding: 60px 60px 20px 60px;
+  flex-flow: column;
+}
+.destacado-block .descripcion .logo {
+  width: auto;
+  height: auto;
+  max-width: 30%;
+  max-height: 20%;
+  text-align: start;
+}
+.destacado-block .descripcion .line-logo {
+  margin: 15px 0 0 0;
+  height: 4px;
+  width: 10%;
+  background-color: #02B300;
+}
+.destacado-block .descripcion p {
+  text-align: start;
+}
+.destacado-block .descripcion h3 {
+  margin-top: 25px;
+  font-size: 35px;
 }
 
 /*--------- Small Devices ---------*/
